@@ -1,0 +1,13 @@
+{
+  "name": "SteamServerBrowser-Windows-Linux",
+  "version": "1.0.0",
+  "description": "A Cross-Platform Browser for Steam Servers",
+  "main": "main.js",
+  "repository": "https://github.com/oukhali99/SteamServerBrowser-Windows-Linux",
+  "author": "oukhali99",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "electron": "^34.0.0"
+  }
+}
