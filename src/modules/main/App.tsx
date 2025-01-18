@@ -1,7 +1,13 @@
 import React from "react";
 
-function App() {
-    return <div className="App">Hello World!</div>;
-}
+import { ServersRoot } from "modules/servers";
+
+const App = () => {
+    return (
+        <div className="App">
+            <ServersRoot />
+        </div>
+    );
+};
 
 export default App;

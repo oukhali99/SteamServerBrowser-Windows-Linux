@@ -1,4 +1,3 @@
-
 class Server {
     ipAndPort: string;
 

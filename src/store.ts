@@ -4,5 +4,5 @@ import modules from "modules";
 
 export default configureStore({
     reducer: modules,
-    preloadedState: {}
+    preloadedState: {},
 });
