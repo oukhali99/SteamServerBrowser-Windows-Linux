@@ -6,7 +6,7 @@ import Server from "../classes/Server";
 type InitialStateType = {
     servers: Server[];
     loading: boolean;
-    error: any;
+    error: Error | null;
 };
 
 const initialState: InitialStateType = {

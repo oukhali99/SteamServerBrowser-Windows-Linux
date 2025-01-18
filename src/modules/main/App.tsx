@@ -4,7 +4,7 @@ import { ServersRoot } from "modules/servers";
 
 const App = () => {
     return (
-        <div className="App">
+        <div>
             <ServersRoot />
         </div>
     );
