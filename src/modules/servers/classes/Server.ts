@@ -1,4 +1,4 @@
-class Server {
+export default class Server {
     ipAndPort: string;
 
     constructor(ipAndPort: string) {
