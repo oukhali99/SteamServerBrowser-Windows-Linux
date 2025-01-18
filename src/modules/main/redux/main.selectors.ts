@@ -1,3 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const getPlaceHolder = (state) => state.main.placeHolder;
+const getPlaceHolder = createSelector(
+    (state) => state.main.placeHolderValue,
+    (placeHolderValue) => placeHolderValue
+);

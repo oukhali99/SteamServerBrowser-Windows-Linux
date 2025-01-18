@@ -1,6 +1,8 @@
 
 class Server {
-    constructor(ipAndPort) {
+    ipAndPort: string;
+
+    constructor(ipAndPort: string) {
         this.ipAndPort = ipAndPort;
     }
 }

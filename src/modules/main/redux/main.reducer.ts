@@ -1,13 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { placeHolderAction } from "./main.actions";
+import { placeHolderAction, PlaceHolderActionPayload } from "./main.actions";
 
 const initialState = {
-    placeHolder: null,
+    placeHolderValue: 0,
 };
 
 export default createReducer(initialState, builder => {
-    builder.addCase(placeHolderAction, (state, action) => {
-        const { placeHolder } = action.payload;
-        state.placeHolder = placeHolder;
+    builder.addCase(placeHolderAction, (state, action: { payload: PlaceHolderActionPayload }) => {
+        const { placeHolderValue } = action.payload;
+        state.placeHolderValue = placeHolderValue;
     });
 });

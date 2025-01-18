@@ -6,7 +6,12 @@ import store from "store";
 
 import { App } from "modules/main";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const documentRoot = document.getElementById("root");
+if (!documentRoot) {
+    throw new Error("Root element not found");
+}
+
+const root = ReactDOM.createRoot(documentRoot);
 root.render(
     <Provider store={store}>
         <React.StrictMode>

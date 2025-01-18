@@ -1,7 +1,10 @@
-import { createAction } from "@reduxjs/toolkit";
+import { createAction, Dispatch } from "@reduxjs/toolkit";
 
-export const placeHolderAction = createAction("common/placeHolderAction");
+export type PlaceHolderActionPayload = {
+    placeHolderValue: number;
+};
+export const placeHolderAction = createAction<PlaceHolderActionPayload>("common/placeHolderAction");
 
-export const placeHolder = (dispatch) => {
-    dispatch(placeHolderAction());
+export const placeHolder = (placeHolderValue: number) => (dispatch: Dispatch) => {
+    dispatch(placeHolderAction({ placeHolderValue }));
 };
