@@ -4,13 +4,13 @@ import * as serverActions from "./servers.actions";
 import Server from "../classes/Server";
 
 type InitialStateType = {
-    servers: Server[];
+    servers: Record<string, Server>;
     loading: boolean;
     error: Error | null;
 };
 
 const initialState: InitialStateType = {
-    servers: [],
+    servers: {},
     loading: false,
     error: null
 };
@@ -41,20 +41,34 @@ export default createReducer(initialState, (builder) => {
             state.loading = true;
             state.error = null;
         })
-        .addCase(
-            serverActions.refreshServersSuccess,
-            (state, action: { payload: serverActions.RefreshServersSuccessType }) => {
-                const { servers }: serverActions.RefreshServersSuccessType = action.payload;
-                state.servers = servers;
-                state.loading = false;
-            }
-        )
+        .addCase(serverActions.refreshServersSuccess, (state) => {
+            state.loading = false;
+        })
         .addCase(
             serverActions.refreshServersFailure,
             (state, action: { payload: serverActions.RefreshServersFailureType }) => {
                 const { error }: serverActions.RefreshServersFailureType = action.payload;
                 state.error = error;
                 state.loading = false;
+            }
+        )
+        .addCase(
+            serverActions.refreshServerStart,
+            (state, action: { payload: serverActions.RefreshServerStartType }) => {
+                // Do nothing yet
+            }
+        )
+        .addCase(
+            serverActions.refreshServerSuccess,
+            (state, action: { payload: serverActions.RefreshServerSuccessType }) => {
+                const { server }: serverActions.RefreshServerSuccessType = action.payload;
+                state.servers[server.ipAndPort] = server;
+            }
+        )
+        .addCase(
+            serverActions.refreshServerFailure,
+            (state, action: { payload: serverActions.RefreshServerFailureType }) => {
+                // Do nothing yet
             }
         );
 });

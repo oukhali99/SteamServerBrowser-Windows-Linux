@@ -1,16 +1,14 @@
-import { useSelector } from "react-redux";
-
 import * as serversActions from "../redux/servers.actions";
 import * as serversSelectors from "../redux/servers.selectors";
 import Server from "../classes/Server";
-import { AppDispatch, RootState } from "@renderer/store";
 import { useAppDispatch, useAppSelector } from "@renderer/hooks";
 
 const ServersRoot = () => {
     const dispatch = useAppDispatch();
 
-    const isLoading = useSelector(serversSelectors.getLoadingSelector);
-    const error: Error | null = useSelector(serversSelectors.getErrorSelector);
+    const isLoading = useAppSelector(serversSelectors.getLoadingSelector);
+    const error: Error | null = useAppSelector(serversSelectors.getErrorSelector);
+    const servers = useAppSelector(serversSelectors.getServersSelector);
 
     return (
         <div>
@@ -27,11 +25,23 @@ const ServersRoot = () => {
                 </div>
             )}
             {error && <div>{error.message}</div>}
-            <ul>
-                {useSelector(serversSelectors.getServersSelector).map((server: Server) => (
-                    <li key={server.ipAndPort}>{server.ipAndPort}</li>
-                ))}
-            </ul>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>IP and Port</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.values(servers).map((server: Server) => (
+                        <tr key={server.ipAndPort}>
+                            <td>{server.ipAndPort}</td>
+                            <td>{server.name}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };

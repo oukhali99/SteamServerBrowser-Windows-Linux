@@ -1,7 +1,5 @@
-import { createSelector } from "@reduxjs/toolkit";
+import { RootState } from "@renderer/store";
 
-import Server from "../classes/Server";
-
-export const getServersSelector = (state: any): Server[] => state.servers.servers;
-export const getLoadingSelector = (state: any): boolean => state.servers.loading;
-export const getErrorSelector = (state: any): Error | null => state.servers.error;
+export const getServersSelector = (state: RootState) => state.servers.servers;
+export const getLoadingSelector = (state: RootState): boolean => state.servers.loading;
+export const getErrorSelector = (state: RootState): Error | null => state.servers.error;
