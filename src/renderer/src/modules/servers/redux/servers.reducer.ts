@@ -12,7 +12,7 @@ type InitialStateType = {
 const initialState: InitialStateType = {
     servers: [],
     loading: false,
-    error: null,
+    error: null
 };
 
 export default createReducer(initialState, (builder) => {
@@ -27,7 +27,7 @@ export default createReducer(initialState, (builder) => {
                 const { servers }: serverActions.FetchServersSuccessType = action.payload;
                 state.servers = servers;
                 state.loading = false;
-            },
+            }
         )
         .addCase(
             serverActions.fetchServersFailure,
@@ -35,7 +35,7 @@ export default createReducer(initialState, (builder) => {
                 const { error }: serverActions.FetchServersFailureType = action.payload;
                 state.error = error;
                 state.loading = false;
-            },
+            }
         )
         .addCase(serverActions.refreshServersStart, (state) => {
             state.loading = true;
@@ -47,7 +47,7 @@ export default createReducer(initialState, (builder) => {
                 const { servers }: serverActions.RefreshServersSuccessType = action.payload;
                 state.servers = servers;
                 state.loading = false;
-            },
+            }
         )
         .addCase(
             serverActions.refreshServersFailure,
@@ -55,6 +55,6 @@ export default createReducer(initialState, (builder) => {
                 const { error }: serverActions.RefreshServersFailureType = action.payload;
                 state.error = error;
                 state.loading = false;
-            },
+            }
         );
 });

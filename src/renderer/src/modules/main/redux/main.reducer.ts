@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 import { placeHolderAction, PlaceHolderActionPayload } from "./main.actions";
 
 const initialState = {
-    placeHolderValue: 0,
+    placeHolderValue: 0
 };
 
 export default createReducer(initialState, (builder) => {

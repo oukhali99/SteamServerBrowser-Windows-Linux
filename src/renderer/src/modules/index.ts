@@ -5,5 +5,5 @@ import servers from "@renderer/modules/servers";
 
 export default combineReducers({
     main,
-    servers,
+    servers
 });
