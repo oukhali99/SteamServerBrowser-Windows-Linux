@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import main from "modules/main";
-import servers from "modules/servers";
+import main from "@renderer/modules/main";
+import servers from "@renderer/modules/servers";
 
 export default combineReducers({
     main,

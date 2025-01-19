@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ServersRoot } from "modules/servers";
+import { ServersRoot } from "@renderer/modules/servers";
 
 const App = () => {
     return (

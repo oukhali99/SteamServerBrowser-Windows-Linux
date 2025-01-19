@@ -1,5 +1,4 @@
 import { createAction, Dispatch } from "@reduxjs/toolkit";
-import { getElectronWindow } from "modules/main";
 
 import Server from "../classes/Server";
 
@@ -26,9 +25,10 @@ export const refreshServersFailure = createAction<RefreshServersFailureType>(
 export const fetchServers = async (dispatch: Dispatch) => {
     dispatch(fetchServersStart());
     try {
-        const serversIpAndPort = await getElectronWindow().steamServerQuery.queryMasterServer(
+        const steamServerQuery = window.api.steamServerQuery;
+        const serversIpAndPort = await steamServerQuery.queryMasterServer(
             "hl2master.steampowered.com:27011",
-            getElectronWindow().steamServerQuery.REGIONS.ALL,
+            steamServerQuery.REGIONS.ALL,
             { empty: 1, appid: 550 },
             30 * 1000,
             5000,

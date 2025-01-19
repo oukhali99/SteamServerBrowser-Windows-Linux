@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import store from "store";
+import store from "@renderer/store";
 
-import { App } from "modules/main";
+import { App } from "@renderer/modules/main";
 
 const documentRoot = document.getElementById("root");
 if (!documentRoot) {
